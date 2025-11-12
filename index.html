@@ -2,14 +2,86 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Dikmen Rasathanesi Projesi</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #333; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dikmen Rasathanesi - TÜBİTAK 2204-A Projesi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Dikmen Rasathanesi Projesi</h1>
-    <p>TÜBİTAK 2204-A Proje Sitemize Hoş Geldiniz!</p>
+
+    <nav class="navbar">
+        <a href="#anasayfa" class="nav-logo">Dikmen Rasathanesi</a>
+        <div class="nav-links">
+            <a href="#proje-amaci">Proje Amacı</a>
+            <a href="#ana-bulgu">Ana Bulgu</a>
+            <a href="#galeri">Galeri</a>
+            <a href="#ekip">Ekip</a>
+        </div>
+    </nav>
+
+    <header id="anasayfa" class="hero-section">
+        <div class="hero-content">
+            <h1>Dikmen Rasathanesi</h1>
+            <p>Antik Gökbilimin İzinde Bir TÜBİTAK 2204-A Projesi</p>
+            <a href="#proje-amaci" class="hero-button">Keşfe Başla</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="proje-amaci" class="content-block animate-on-scroll">
+            <div class="text-container">
+                <h2>Projemizin Amacı</h2>
+                <p>Bu proje, Afşin Dikmen Tepesi'nde bulunan antik yapı kalıntılarının, aslında Kış Gündönümü gibi gök olaylarını gözlemlemek için kullanılan bir 'arkeoastronomik' yapı (rasathane) olup olmadığını bilimsel yöntemlerle kanıtlamayı amaçlamaktadır.</p>
+            </div>
+            <div class="image-container">
+                <img src="yapi-resmi.jpg" alt="Antik Yapı Kalıntısı">
+            </div>
+        </section>
+
+        <section id="ana-bulgu" class="content-block animate-on-scroll reverse">
+            <div class="image-container">
+                <img src="stellarium-kanit.jpg" alt="Stellarium 213 Derece Kanıtı">
+            </div>
+            <div class="text-container">
+                <h2>Ana Bulgu: 213° Kış Gündönümü</h2>
+                <p>Yaptığımız saha ölçümleri ve Stellarium simülasyonları, yapının ana kapı yönünün (213°) M.S. 100 yılındaki Kış Gündönümü'nde Güneş'in battığı nokta ile mükemmel bir şekilde hizalandığını göstermektedir. Bu, yapının bilinçli bir tasarım olduğunu kanıtlayan en güçlü bulgumuzdur.</p>
+            </div>
+        </section>
+
+        <section id="galeri" class="gallery-section animate-on-scroll">
+            <h2>Galeri ve Dijital Kanıtlar</h2>
+            <p>Proje sahamızdan videolar, fotoğraflar ve hazırladığımız 3 boyutlu model.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item placeholder">
+                    <h3>Video: Tavandaki Yazılar</h3>
+                    <p>(Video buraya eklenecek - YouTube Embed)</p>
+                </div>
+                <div class="gallery-item placeholder">
+                    <h3>3D Model: Antik Yapı</h3>
+                    <p>(3D Model buraya eklenecek - Sketchfab veya Model-Viewer)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ekip" class="team-section animate-on-scroll">
+            <h2>Proje Ekibi</h2>
+            <div class="team-member">
+                <h4>[Senin Adın Soyadın]</h4>
+                <p>Proje Yürütücüsü - [Okulunun Adı]</p>
+            </div>
+            <div class="team-member">
+                <h4>[Danışman Hocanın Adı]</h4>
+                <p>Proje Danışmanı - [Okulunun Adı]</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Dikmen Rasathanesi Projesi</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/dikmenrasathanesi" target="_blank">Instagram Hesabımız</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
