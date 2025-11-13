@@ -132,7 +132,7 @@ body {
     background-color: var(--brand-color-dark);
 }
 
-/* 5. İçerik Blokları */
+/* 5. İçerik Blokları (content-block) */
 main {
     padding-top: 80px;
 }
@@ -164,77 +164,65 @@ main {
 .content-block.reverse {
     flex-direction: row-reverse;
 }
+
 /* İçerik Başlık ve Metinleri */
 h2 {
     color: var(--text-primary);
+    margin-top: 0;
+}
+h3 {
+    color: var(--brand-color);
+    margin-top: 25px;
 }
 p {
     color: var(--text-secondary);
     line-height: 1.7;
 }
 
-/* 6. YENİ BÖLÜM: Info Section (Tarihçe ve Turizm) */
-.info-section {
-    max-width: 1100px;
-    margin: 60px auto;
-    text-align: left;
-    background-color: var(--bg-card);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.info-section h2 {
-    text-align: center;
-    margin-top: 0;
-    color: var(--brand-color);
-}
-.info-section > .info-container > p {
-    text-align: center;
-    font-size: 1.1em;
-    max-width: 800px;
-    margin: 15px auto 30px auto;
-}
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 30px;
-}
-.info-box {
-    background-color: var(--bg-color); /* Kartın içindeki kutu hafif farklı renk */
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px solid var(--border-light);
-    transition: background-color 0.3s ease;
-}
-.info-box h3 {
-    margin-top: 0;
-    color: var(--text-primary);
-}
+/* Tarihçe bölümündeki Konum ve Harita Kutusu */
 .location-box {
-    text-align: center;
+    text-align: left;
     background-color: var(--placeholder-bg);
     padding: 20px;
     border-radius: 8px;
-    border: 1px dashed var(--placeholder-border);
+    margin-top: 25px;
     transition: background-color 0.3s ease;
 }
 .location-box h4 {
     margin: 0 0 10px 0;
     color: var(--text-primary);
+    text-align: center;
 }
 .location-box p {
-    margin: 0;
+    margin: 0 0 20px 0;
     color: var(--text-secondary);
+    text-align: center;
+}
+.map-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Oran */
+    border-radius: 8px;
+}
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 
-/* 7. Galeri Bölümü */
+/* 6. Galeri Bölümü */
 .gallery-section {
     max-width: 1100px;
     margin: 60px auto;
     text-align: center;
+}
+.gallery-section h2 { /* Galeri ana başlığı */
+    color: var(--brand-color);
 }
 .gallery-grid {
     display: grid;
@@ -313,7 +301,7 @@ p {
 .carousel-slide {
     min-width: 100%;
     box-sizing: border-box;
-    flex-shrink: 0; /* DÜZELTME: Resimlerin taşmasını engeller */
+    flex-shrink: 0; /* Resimlerin taşmasını engeller */
 }
 .carousel-slide img {
     width: 100%;
@@ -346,7 +334,7 @@ p {
     right: 10px;
 }
 
-/* 8. Ekip Bölümü */
+/* 7. Ekip Bölümü */
 .team-section {
     max-width: 1100px;
     margin: 60px auto;
@@ -357,8 +345,9 @@ p {
     box-shadow: 0 4px 15px var(--shadow-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.team-section h2 {
+.team-section h2 { /* Ekip ana başlığı */
     margin-top: 0;
+    color: var(--text-primary);
 }
 .team-grid {
     display: grid;
@@ -392,7 +381,7 @@ p {
     font-size: 1.3em;
 }
 
-/* 9. Footer (Alt Bilgi) */
+/* 8. Footer (Alt Bilgi) */
 footer {
     text-align: center;
     padding: 30px;
@@ -410,15 +399,13 @@ footer {
     color: var(--brand-color);
 }
 
-/* 10. ABARTILI ANİMASYON KISMI */
+/* 9. ABARTILI ANİMASYON KISMI */
 .animate-on-scroll {
-    /* Başlangıçta: Ekranın solunda, hafif dönmüş ve görünmez */
     opacity: 0;
     transform: translateX(-100px) rotate(-5deg);
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 .animate-on-scroll.is-visible {
-    /* Bitişte: Normal yerinde, tam düz ve görünür */
     opacity: 1;
     transform: translateX(0) rotate(0deg);
 }

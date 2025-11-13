@@ -20,82 +20,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 2. KARANLIK MOD BUTONU KODU ---
     const themeToggle = document.getElementById('theme-toggle');
-    // Sayfa yüklenirken hafızada (localStorage) kayıtlı tema var mı diye bak
     const currentTheme = localStorage.getItem('theme');
-
-    // Eğer hafızada tema varsa, onu uygula
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
-        // Eğer tema karanlıksa, butonu Güneş yap
         if (currentTheme === 'dark') {
             themeToggle.innerHTML = "☀️";
         }
     }
-
-    // Tema değiştirme butonuna tıklandığında...
     themeToggle.addEventListener('click', () => {
-        // Mevcut temanın ne olduğunu kontrol et
         let currentTheme = document.documentElement.getAttribute('data-theme');
-        
         if (currentTheme === 'dark') {
-            // Şu an karanlıksa, AÇIK moda geç
             document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light'); // Seçimi hafızaya kaydet
-            themeToggle.innerHTML = "🌙"; // Butonu Ay yap
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = "🌙";
         } else {
-            // Şu an açık veya tanımsızsa, KARANLIK moda geç
             document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark'); // Seçimi hafızaya kaydet
-            themeToggle.innerHTML = "☀️"; // Butonu Güneş yap
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = "☀️";
         }
     });
 
     // --- 3. RESİM RULOSU (CAROUSEL) KODU ---
     const track = document.querySelector('.carousel-track');
-    // Eğer 'track' diye bir şey bulamazsan (hata olmasın diye) dur
     if (!track) return; 
 
     const slides = Array.from(track.children);
     const nextButton = document.querySelector('.next-button');
     const prevButton = document.querySelector('.prev-button');
     
-    // Slayt genişliğini almak için fonksiyon
     const getSlideWidth = () => {
+        if (slides.length === 0) return 0; // Hata önlemi
         return slides[0].getBoundingClientRect().width;
     }
 
     let slideWidth = getSlideWidth();
-    let currentIndex = 0; // Hangi slaytta olduğumuzu takip et
+    let currentIndex = 0;
 
-    // İleri butonuna tıklandığında
     nextButton.addEventListener('click', e => {
+        if (slides.length === 0) return; // Hata önlemi
         if (currentIndex === slides.length - 1) {
-            currentIndex = 0; // Son slayttaysan, başa dön
+            currentIndex = 0;
         } else {
-            currentIndex++; // Değilse, bir sonrakine git
+            currentIndex++;
         }
-        // 'track' elementini sola doğru kaydır
         track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
     });
 
-    // Geri butonuna tıklandığında
     prevButton.addEventListener('click', e => {
+        if (slides.length === 0) return; // Hata önlemi
         if (currentIndex === 0) {
-            currentIndex = slides.length - 1; // İlk slayttaysan, sona git
+            currentIndex = slides.length - 1;
         } else {
-            currentIndex--; // Değilse, bir öncekine gel
+            currentIndex--;
         }
-        // 'track' elementini kaydır
         track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
     });
     
-    // Ekran boyutu değişirse slayt genişliğini yeniden hesapla
     window.addEventListener('resize', () => {
-        slideWidth = getSlideWidth(); // Genişliği güncelle
-        track.style.transition = 'none'; // Kaydırma sırasında geçişi kaldır
-        track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)'; // Anında doğru pozisyona al
+        slideWidth = getSlideWidth();
+        if (slideWidth === 0) return; // Hata önlemi
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
         setTimeout(() => {
-            track.style.transition = 'transform 0.5s ease-in-out'; // Geçişi geri ekle
-        }, 50); // Çok küçük bir gecikme
+            track.style.transition = 'transform 0.5s ease-in-out';
+        }, 50);
     });
 });
