@@ -1,7 +1,7 @@
 // Kod, sayfa yüklendiğinde çalışmaya başlar
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- 1. ABARTILI ANİMASYON KODU (Değişiklik yok, çalışmaya devam ediyor) ---
+    // --- 1. ABARTILI ANİMASYON KODU ---
     const sections = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(section);
     });
 
-    // --- 2. YENİ: KARANLIK MOD BUTONU KODU ---
+    // --- 2. KARANLIK MOD BUTONU KODU ---
     const themeToggle = document.getElementById('theme-toggle');
     // Sayfa yüklenirken hafızada (localStorage) kayıtlı tema var mı diye bak
     const currentTheme = localStorage.getItem('theme');
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- 3. YENİ: RESİM RULOSU (CAROUSEL) KODU ---
+    // --- 3. RESİM RULOSU (CAROUSEL) KODU ---
     const track = document.querySelector('.carousel-track');
     // Eğer 'track' diye bir şey bulamazsan (hata olmasın diye) dur
     if (!track) return; 
@@ -58,25 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = Array.from(track.children);
     const nextButton = document.querySelector('.next-button');
     const prevButton = document.querySelector('.prev-button');
-    const slideWidth = slides[0].getBoundingClientRect().width;
-
-    // Her slaytı doğru pozisyona yerleştir (yan yana)
-    const setSlidePosition = (slide, index) => {
-        // Bu kod, slaytların yan yana gelmesi için gerekli DEĞİL, CSS hallediyor
-        // Sadece genişliklerini ayarlamak için tutabiliriz.
-        // slide.style.left = slideWidth * index + 'px'; // CSS flex'e geçtiği için bu satıra gerek kalmadı
-    };
-    slides.forEach(setSlidePosition);
-
-    // Bir slayta hareket etme fonksiyonu
-    const moveToSlide = (currentSlide, targetSlide) => {
-        if (!targetSlide) return; // Eğer hedef slayt yoksa (örn. son slayttan ileri gitmeye çalışmak) dur
-        track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-        currentSlide.classList.remove('current-slide');
-        targetSlide.classList.add('current-slide');
-    };
     
-    // YENİ: Kaydırma Mantığı (Basitleştirilmiş)
+    // Slayt genişliğini almak için fonksiyon
+    const getSlideWidth = () => {
+        return slides[0].getBoundingClientRect().width;
+    }
+
+    let slideWidth = getSlideWidth();
     let currentIndex = 0; // Hangi slaytta olduğumuzu takip et
 
     // İleri butonuna tıklandığında
@@ -101,9 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
     });
     
-    // Ekran boyutu değişirse slayt genişliğini yeniden hesapla (Opsiyonel ama önemli)
+    // Ekran boyutu değişirse slayt genişliğini yeniden hesapla
     window.addEventListener('resize', () => {
-        const newSlideWidth = slides[0].getBoundingClientRect().width;
-        track.style.transform = 'translateX(-' + newSlideWidth * currentIndex + 'px)';
+        slideWidth = getSlideWidth(); // Genişliği güncelle
+        track.style.transition = 'none'; // Kaydırma sırasında geçişi kaldır
+        track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)'; // Anında doğru pozisyona al
+        setTimeout(() => {
+            track.style.transition = 'transform 0.5s ease-in-out'; // Geçişi geri ekle
+        }, 50); // Çok küçük bir gecikme
     });
 });
