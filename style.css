@@ -1,56 +1,112 @@
-/* Genel Ayarlar ve Google Sites'ta yapamadığımız o "kaydırma" efekti */
+/* 1. Renk Değişkenleri (Dark/Light Mod için) */
+:root {
+    --bg-color: #f4f7f6;
+    --bg-card: #ffffff;
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-on-hero: #ffffff;
+    --brand-color: #e67e22;
+    --brand-color-dark: #d35400;
+    --border-light: #eee;
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+    --footer-bg: #2c3e50;
+    --footer-text: #ecf0f1;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --placeholder-bg: #f9f9f9;
+    --placeholder-border: #ccc;
+    --placeholder-text: #888;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --bg-card: #2c2c2c;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --text-on-hero: #ffffff;
+    --border-light: #444;
+    --navbar-bg: rgba(30, 30, 30, 0.9);
+    --footer-bg: #1f1f1f;
+    --footer-text: #bdc3c7;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --placeholder-bg: #333;
+    --placeholder-border: #555;
+    --placeholder-text: #777;
+}
+
+/* 2. Genel Ayarlar */
 html {
-    scroll-behavior: smooth; /* Butonlara basınca yumuşakça aşağı kayar */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 1. Üst Gezinti Menüsü (Navbar) */
+/* 3. Üst Gezinti Menüsü (Navbar) */
 .navbar {
-    position: fixed; /* Sayfayı kaydırsan da üstte kalır */
+    position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px); /* Arka planı buğulu yapar (Modern görünüm) */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px var(--shadow-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
     z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 .nav-logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--text-primary);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 .nav-links a {
     margin-left: 20px;
     text-decoration: none;
-    color: #555;
+    color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s ease;
 }
 .nav-links a:hover {
-    color: #e67e22; /* Renkleri zevkinize göre değiştirin */
+    color: var(--brand-color);
 }
 
-/* 2. Ana Başlık (Hero Section) */
+/* YENİ: Tema Butonu Stili */
+.theme-toggle-button {
+    background-color: transparent;
+    border: 2px solid var(--text-secondary);
+    color: var(--text-secondary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+.theme-toggle-button:hover {
+    color: var(--brand-color);
+    border-color: var(--brand-color);
+    transform: rotate(15deg);
+}
+
+/* 4. Ana Başlık (Hero Section) */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100vh; /* Ekranı tam kaplar */
-    color: white;
-    /* *** HATIRLATMA: 'ana-sayfa-fotografi.jpg' dosyasını deponuza yüklemelisiniz *** */
+    height: 100vh;
+    color: var(--text-on-hero);
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('ana-sayfa-fotografi.jpg');
     background-size: cover;
     background-position: center;
@@ -65,51 +121,59 @@ body {
 }
 .hero-button {
     text-decoration: none;
-    color: white;
-    background-color: #e67e22;
+    color: var(--text-on-hero);
+    background-color: var(--brand-color);
     padding: 15px 30px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 .hero-button:hover {
-    background-color: #d35400;
+    background-color: var(--brand-color-dark);
 }
 
-/* 3. İçerik Blokları (Proje Amacı, Ana Bulgu) */
+/* 5. İçerik Blokları */
 main {
-    padding-top: 80px; /* Navbar'ın yüksekliği kadar boşluk */
+    padding-top: 80px;
 }
 .content-block {
     display: flex;
-    flex-wrap: wrap; /* Mobilde alt alta gelmesi için */
+    flex-wrap: wrap;
     max-width: 1100px;
     margin: 60px auto;
-    background-color: #ffffff;
+    background-color: var(--bg-card);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    overflow: hidden; /* Resmin taşmasını engeller */
+    box-shadow: 0 4px 15px var(--shadow-color);
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .content-block .text-container,
 .content-block .image-container {
-    flex: 1; /* %50 %50 paylaşırlar */
-    min-width: 300px; /* Mobilde çok küçülmesinler */
+    flex: 1;
+    min-width: 300px;
 }
 .content-block .text-container {
     padding: 40px;
-    align-self: center; /* Metni dikeyde ortalar */
+    align-self: center;
 }
 .content-block .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Resmin şeklini bozmadan doldurur */
+    object-fit: cover;
 }
-/* Ters dizilim için (Ana Bulgu bölümü) */
 .content-block.reverse {
     flex-direction: row-reverse;
 }
+/* İçerik Başlık ve Metinleri */
+h2 {
+    color: var(--text-primary);
+}
+p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
 
-/* 4. Galeri Bölümü (GÜNCELLENDİ) */
+/* 6. Galeri Bölümü */
 .gallery-section {
     max-width: 1100px;
     margin: 60px auto;
@@ -117,34 +181,31 @@ main {
 }
 .gallery-grid {
     display: grid;
-    /* Öğeleri (2 video, 1 placeholder) mükemmel dizer */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 30px;
 }
 .gallery-item {
-    background-color: #ffffff;
+    background-color: var(--bg-card);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px var(--shadow-color);
     padding: 20px;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .gallery-item h3 {
     margin-top: 0;
-    color: #e67e22; /* Ana rengimiz */
-    min-height: 2.5em; /* Başlıklar için sabit yükseklik */
+    color: var(--brand-color);
+    min-height: 2.5em;
 }
-
-/* YouTube 'Shorts' (Dikey Video) için Responsive Yapma Kodu */
 .video-wrapper {
     position: relative;
-    /* Dikey 9:16 video oranı (16 / 9 * 100 = 177.77%) */
     padding-bottom: 177.77%; 
     height: 0;
     overflow: hidden;
-    border-radius: 8px; /* Videoya yumuşak köşe */
-    flex-grow: 1; /* Esneyerek alanı doldurur */
+    border-radius: 8px;
+    flex-grow: 1;
 }
 .video-wrapper iframe {
     position: absolute;
@@ -153,15 +214,14 @@ main {
     width: 100%;
     height: 100%;
 }
-
-/* 3D Model (Placeholder) kutusunun stili */
 .gallery-item.placeholder {
-    background-color: #f9f9f9;
-    border: 2px dashed #ccc;
-    color: #888;
+    background-color: var(--placeholder-bg);
+    border: 2px dashed var(--placeholder-border);
+    color: var(--placeholder-text);
     justify-content: center;
     align-items: center;
-    min-height: 400px; /* Diğer videolarla yaklaşık boyda olması için */
+    min-height: 400px;
+    transition: all 0.3s ease;
 }
 .gallery-item.placeholder span {
     font-size: 3em;
@@ -169,22 +229,81 @@ main {
     opacity: 0.5;
 }
 
-/* 5. Ekip Bölümü (GÜNCELLENDİ) */
+/* YENİ: Resim Rulosu (Carousel) Stilleri */
+.carousel-container {
+    text-align: left;
+    margin-top: 40px;
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    padding: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.carousel-container h3 {
+    text-align: center;
+    color: var(--brand-color);
+    margin-top: 0;
+}
+.carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 500px; /* Sabit yükseklik, oranı koru */
+    object-fit: cover;
+    display: block;
+}
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.prev-button {
+    left: 10px;
+}
+.next-button {
+    right: 10px;
+}
+
+/* 7. Ekip Bölümü */
 .team-section {
     max-width: 1100px;
     margin: 60px auto;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--bg-card);
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .team-section h2 {
     margin-top: 0;
 }
 .team-grid {
     display: grid;
-    /* Ekip üyelerini (3 öğrenci) düzgün bir ızgaraya koyar */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     margin-top: 30px;
@@ -194,57 +313,55 @@ main {
 }
 .team-member h4 {
     font-size: 1.2em;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 5px;
 }
 .team-member p {
     font-size: 1em;
-    color: #555;
+    color: var(--text-secondary);
     margin-top: 0;
 }
 .team-member.advisor {
-    /* 3 öğrencilik ızgaranın altına hocayı ortalar */
-    grid-column: 1 / -1; /* Bulunduğu satırda tüm alanı kaplar */
-    max-width: 400px; /* Ama çok da genişlemesin */
-    margin: 20px auto 0 auto; /* Otomatik ortalama ve üst boşluk */
+    grid-column: 1 / -1;
+    max-width: 400px;
+    margin: 20px auto 0 auto;
     padding-top: 20px;
-    border-top: 2px solid #eee; /* Üstteki üyelerden ayırır */
+    border-top: 2px solid var(--border-light);
+    transition: border-color 0.3s ease;
 }
 .team-member.advisor h4 {
-    color: #e67e22; /* Ana rengimizle vurgu */
+    color: var(--brand-color);
     font-size: 1.3em;
 }
 
-/* 6. Footer (Alt Bilgi) */
+/* 8. Footer (Alt Bilgi) */
 footer {
     text-align: center;
     padding: 30px;
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     margin-top: 60px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .social-links a {
-    color: #ecf0f1;
+    color: var(--footer-text);
     text-decoration: none;
     font-weight: 500;
 }
 .social-links a:hover {
-    color: #e67e22;
+    color: var(--brand-color);
 }
 
-/* ******************************************* */
-/* İŞTE O İSTEDİĞİNİZ ANİMASYON KISMI      */
-/* ******************************************* */
-
-/* Başlangıçta tüm animasyonlu blokları görünmez yap ve biraz aşağı it */
+/* 9. ABARTILI ANİMASYON KISMI */
 .animate-on-scroll {
+    /* Başlangıçta: Ekranın solunda, hafif dönmüş ve görünmez */
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateX(-100px) rotate(-5deg);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
-/* JavaScript bu sınıfı eklediğinde... */
 .animate-on-scroll.is-visible {
-    opacity: 1; /* Görünür yap */
-    transform: translateY(0); /* Normal yerine geri getir */
+    /* Bitişte: Normal yerinde, tam düz ve görünür */
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
 }
