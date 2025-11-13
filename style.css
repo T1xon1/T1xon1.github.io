@@ -179,6 +179,19 @@ p {
     line-height: 1.7;
 }
 
+/* YENİ: Tarihçe Ana Başlığını Ortala */
+.content-block#bilgi .text-container h2 {
+    text-align: center;
+}
+
+/* YENİ: Tarihçe bölümü içindeki 2'li bilgi ızgarası */
+.info-grid-internal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 25px; /* Ana başlıktan sonra boşluk */
+}
+
 /* Tarihçe bölümündeki Konum ve Harita Kutusu */
 .location-box {
     text-align: left;
@@ -202,7 +215,7 @@ p {
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Oran */
+    padding-top: 75%; /* GÜNCELLENDİ: 16:9 yerine 4:3 oran, daha uzun (büyük) harita */
     border-radius: 8px;
 }
 .map-container iframe {
@@ -357,6 +370,7 @@ p {
 }
 .team-member {
     padding: 10px;
+    text-align: center; /* GÜNCELLENDİ: 3 üyenin de yazısını ortalar */
 }
 .team-member h4 {
     font-size: 1.2em;
@@ -375,6 +389,7 @@ p {
     padding-top: 20px;
     border-top: 2px solid var(--border-light);
     transition: border-color 0.3s ease;
+    /* text-align: center; zaten yukarıdaki .team-member'dan miras alır */
 }
 .team-member.advisor h4 {
     color: var(--brand-color);
