@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(section);
     });
 
-    // --- 2. KARANLIK MOD BUTONU KODU ---
+    // --- 2. KARANLIK MOD BUTONU KODU - DÜZELTİLDİ ---
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
@@ -27,13 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
             themeToggle.innerHTML = "☀️";
         }
     }
+    
     themeToggle.addEventListener('click', () => {
-        let currentTheme = document.documentElement.getAttribute('data-tr');
+        // *** HATA BURADAYDI: 'data-tr' 'data-theme' OLARAK DÜZELTİLDİ ***
+        let currentTheme = document.documentElement.getAttribute('data-theme');
+        
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
             themeToggle.innerHTML = "🌙";
         } else {
+            // 'light' veya null (tanımsız) ise
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
             themeToggle.innerHTML = "☀️";
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.querySelector('.prev-button');
     
     const getSlideWidth = () => {
-        if (slides.length === 0) return 0; // Hata önlemi
+        if (slides.length === 0) return 0;
         return slides[0].getBoundingClientRect().width;
     }
 
@@ -57,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
 
     nextButton.addEventListener('click', e => {
-        if (slides.length === 0) return; // Hata önlemi
+        if (slides.length === 0) return;
         if (currentIndex === slides.length - 1) {
             currentIndex = 0;
         } else {
@@ -67,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     prevButton.addEventListener('click', e => {
-        if (slides.length === 0) return; // Hata önlemi
+        if (slides.length === 0) return;
         if (currentIndex === 0) {
             currentIndex = slides.length - 1;
         } else {
@@ -78,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     window.addEventListener('resize', () => {
         slideWidth = getSlideWidth();
-        if (slideWidth === 0) return; // Hata önlemi
+        if (slideWidth === 0) return;
         track.style.transition = 'none';
         track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
         setTimeout(() => {
