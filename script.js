@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     themeToggle.addEventListener('click', () => {
+        // HATA DÜZELTİLDİ: 'data-theme' olmalı
         let currentTheme = document.documentElement.getAttribute('data-theme');
         
         if (currentTheme === 'dark') {
