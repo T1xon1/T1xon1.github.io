@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     themeToggle.addEventListener('click', () => {
-        // *** HATA BURADAYDI: 'data-tr' 'data-theme' OLARAK DÜZELTİLDİ ***
         let currentTheme = document.documentElement.getAttribute('data-theme');
         
         if (currentTheme === 'dark') {
