@@ -21,7 +21,7 @@
                 <button id="theme-toggle" class="theme-toggle-button">🌙</button>
             </div>
         </div>
-    </nav>
+    </nav
 
     <header id="anasayfa" class="hero-section">
         <div class="hero-content">
@@ -47,37 +47,42 @@
             <h2>Bilimsel Yöntemimiz (Metodoloji) 🛰️</h2>
             
             <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px;">
-                Hipotezimizi kanıtlamak için dört adımlı bir bilimsel yöntem izledik. Amacımız, yapının yönü ile belirli bir gök olayı arasında tesadüfi olmayan, istatistiksel olarak anlamlı bir ilişki bulmaktı.
+                Projemizin temel hipotezi, bu yapının tesadüfen değil, belirli bir astronomik olayı gözlemlemek için bilinçli olarak inşa edildiği yönündeydi. Bu hipotezi kanıtlamak, birbiriyle ilişkili üç temel veriyi bulmayı ve ilişkilendirmeyi gerektiriyordu: Konum, Yön ve Tarih.
             </p>
 
-            <h3>Adım 1: Konum Tespiti (Neredeyiz?)</h3>
+            <h3>1. Kritik Veri: Yön (Azimut) Ölçümü</h3>
             <p>
-                <strong>Niçin Yaptık?</strong> Gökyüzü simülasyonlarının doğru çalışması için, yapının Dünya üzerindeki tam konumuna ihtiyacımız vardı.<br>
-                <strong>Nasıl Yaptık?</strong> Arazide, yüksek hassasiyetli bir GPS alıcısı kullanarak yapının tam coğrafi koordinatlarını belirledik: **38.2917° Kuzey Enlemi, 36.8837° Doğu Boylamı.**
+                Eğer bu bir rasathaneyse, mimarisinin en önemli parçası "bakış yönü" olmalıydı. Projemizin ilk ve en kritik saha çalışması bu yönü (azimutu) belirlemekti. Arazide, yapının ana kapı açıklığını ve 'diopter' olarak bilinen ana bakış deliğini referans aldık.
+            </p>
+            <p>
+                Manyetik sapmaları en aza indirmek için dijital pusula ve 'Güneş'in gölgesi' (gnomon) yöntemlerini bir arada kullandık. Yaptığımız çoklu ölçümlerin ortalamasını alarak, yapının ufka tam olarak **213° (Güneybatı)** yönüne baktığını yüksek hassasiyetle tespit ettik. Artık elimizde sorgulamamız gereken somut bir sayı vardı: 213°.
             </p>
 
-            <h3>Adım 2: Yön Tespiti (Nereye Bakıyoruz?)</h3>
+            <h3>2. Kritik Veri: Konum ve Tarih Tespiti</h3>
             <p>
-                <strong>Niçin Yaptık?</strong> Bu, projemizin en kritik ölçümüydü. Eğer bu bir rasathaneyse, ana "bakış yönü" (azimut) bir gök olayını işaret etmeliydi.<br>
-                <strong>Nasıl Yaptık?</strong> Yapının ana kapı açıklığını referans aldık. Dijital pusula, 'diopter' (bakış deliği) ve güneşin gölgesini kullanarak çoklu ölçümler yaptık. Ölçümlerin ortalaması, yapının ufukta tam olarak **213°**'ye (Güneybatı) baktığını kesin olarak tespit etti.
+                Gökyüzü, Dünya'nın her yerinden aynı görünmez (konum) ve binlerce yıl içinde aynı kalmaz (tarih). Bu yüzden 213°'nin anlamını çözmek için bu iki veriye ihtiyacımız vardı.
+            </p>
+            <p>
+                <strong>Konum:</strong> Yüksek hassasiyetli bir GPS alıcısı kullanarak yapının tam coğrafi koordinatlarını belirledik: **38.2917° Kuzey Enlemi, 36.8837° Doğu Boylamı.** Bu, dijital simülasyonumuzun temelini oluşturdu.
+            </p>
+            <p>
+                <strong>Tarih:</strong> Yapının mimari tarzı (kemer yapısı, kullanılan harç ve taş işçiliği) üzerine yaptığımız analizler ve bölgenin bilinen tarihi, yapının **Geç Roma Dönemi'ne (M.S. 100 - 300)** ait olduğunu güçlü bir şekilde gösterdi. Simülasyonumuz için bu aralığın ortalaması olan **M.S. 100 yılını** baz aldık.
             </p>
 
-            <h3>Adım 3: Tarih Tespiti (Ne Zaman İnşa Edildi?)</h3>
+            <h3>3. Kanıt: Dijital Simülasyon (Stellarium)</h3>
             <p>
-                <strong>Niçin Yaptık?</strong> Dünya'nın eksen eğikliği zamanla çok az da olsa değişir (presesyon). Bu nedenle, M.Ö. 1000 yılındaki gökyüzü ile M.S. 100 yılındaki gökyüzü aynı değildir. Doğru simülasyon için doğru tarihi bilmemiz gerekiyordu.<br>
-                <strong>Nasıl Yaptık?</strong> Yapının mimari tarzı (kemer yapısı, taş işçiliği) ve bölgenin tarihi üzerine yaptığımız araştırmalar, yapının **Geç Roma Dönemi'ne (M.S. 100 - 300)** ait olduğunu güçlü bir şekilde gösterdi. Biz de simülasyonumuz için ortalama bir tarih olan **M.S. 100 yılını** baz aldık.
+                Artık elimizde 3 veri vardı: Konum (38.29°K), Yön (213°) ve Tarih (M.S. 100). Sorumuz şuydu: "Bu konumda, bu tarihte, 213° yönünde hangi önemli gök olayı gerçekleşiyordu?"
             </p>
-
-            <h3>Adım 4: Dijital Simülasyon (Kanıtın Bulunması)</h3>
             <p>
-                <strong>Niçin Yaptık?</strong> Artık elimizde 3 veri vardı: Konum (Adım 1), Yön (Adım 2) ve Tarih (Adım 3). Şimdi bu 213°'lik yönün, o tarihte ve o konumda ne anlama geldiğini bulmamız gerekiyordu.<br>
-                <strong>Nasıl Yaptık?</strong> Ücretsiz ve bilimsel olarak kabul görmüş **Stellarium** yazılımını kullandık. Adım 1'deki konumu ve Adım 3'teki M.S. 100 tarihini girdik. Ardından, o yıl içindeki tüm önemli güneş ve ay olaylarını (gündönümleri, ekinokslar) simüle ettik. Sonuç şaşırtıcıydı: M.S. 100 yılındaki **Kış Gündönümü'nde (21 Aralık), Güneş'in ufukta battığı nokta tam olarak 213.5° azimuttu.**
+                Bu soruyu cevaplamak için, bilimsel topluluklarca kabul görmüş, ücretsiz ve açık kaynaklı **Stellarium** planetarium yazılımını kullandık. Yazılıma tam konumumuzu ve M.S. 100 yılını girdik. Ardından, o yıl içindeki tüm önemli güneş ve ay olaylarını (gündönümleri, ekinokslar) simüle ettik.
+            </p>
+            <p>
+                Sonuç, hipotezimizi doğrudan doğruladı: M.S. 100 yılında, Kış Gündönümü'nde (yılın en kısa günü, 21 Aralık), Güneş'in ufukta battığı nokta tam olarak **213.5° azimuttu.**
             </p>
             
             <p class="info-summary">
-                <strong>SONUÇ:</strong> Saha ölçümümüz (<strong>213°</strong>) ile dijital simülasyonumuz (<strong>213.5°</strong>) arasındaki yalnızca <strong>0.5°</strong>'lik fark, antik bir yapının inşasındaki hata payı (tolerans) için 'mükemmel' bir eşleşmedir. Bu, yapının Kış Gündönümü'nü gözlemlemek için bilinçli olarak tasarlandığını kanıtlar.
+                <strong>SONUÇ:</strong> Arazide ölçtüğümüz fiziksel yön (<strong>213°</strong>) ile o tarih ve konum için hesaplanan Kış Gündönümü Güneş batışı (<strong>213.5°</strong>) arasındaki fark, yalnızca <strong>0.5°</strong> idi. Antik mimarideki hata payları düşünüldüğünde, bu istatistiksel olarak 'mükemmel' bir eşleşmedir ve yapının Kış Gündönümü'nü işaretlemek için bilinçli olarak tasarlandığını kanıtlar.
             </p>
-
         </section>
 
         <section id="ana-bulgu" class="content-block animate-on-scroll reverse">
@@ -110,7 +115,7 @@
                 <p>Yapı, Afşin, Dikmen Tepesi'nde yer almaktadır. Aşağıdaki haritadan tam konumu inceleyebilirsiniz.</p>
                 <div class="map-container">
                     
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d963.0843130929617!2d36.81232246965429!3d38.30757075059858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzjCsDE4JzI3LjMiTiAzNsKwNDgnNDYuNyJF!5e1!3m2!1str!2str!4v1763030237890!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="YENİ_GOOGLE_MAPS_KODUNU_BURAYA_YAPIŞTIR" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                 </div>
             </div>
@@ -144,7 +149,7 @@
             </div>
 
             <div class="carousel-container animate-on-scroll">
-                <h3>Saha Fotoğrafı 📸</h3>
+                <h3>Saha Fotoğrafları 📸</h3>
                 <div class="carousel-wrapper">
                     <div class="carousel-track">
                         <div class="carousel-slide"><img src="foto1.jpg" alt="Saha Fotoğrafı 1"></div>
@@ -188,7 +193,7 @@
     <footer>
         <p>© 2025 Dikmen Rasathanesi Projesi</p>
         <div class="social-links">
-            <a href="https.www.instagram.com/dikmenrasathanesi" target="_blank">Instagram Hesahabımız</a>
+            <a href="https.www.instagram.com/dikmenrasathanesi" target="_blank">Instagram Hesabımız</a>
         </div>
     </footer>
 
