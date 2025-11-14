@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     themeToggle.addEventListener('click', () => {
-        let currentTheme = document.documentElement.getAttribute('data-theme');
+        let currentTheme = document.documentElement.getAttribute('data-tr');
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
