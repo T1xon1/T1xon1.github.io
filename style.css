@@ -269,10 +269,9 @@ p {
     max-width: 1100px;
     margin: 60px auto;
     text-align: center;
-    /* YENİ: Hover için yumuşak geçiş eklendi (Bu bir kart değil ama sen istedin) */
+    /* YENİ: Hover için yumuşak geçiş eklendi */
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     
-    /* Not: Bu bölümün kendisi kart olmadığı için padding/shadow ekliyorum */
     background-color: var(--bg-card);
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--shadow-color);
@@ -447,6 +446,7 @@ p {
 
 
 /* *** YENİ BÖLÜM: TÜM SÜTUNLAR İÇİN HOVER EFEKTİ *** */
+/* Bu kod, sütunların büyümemesi sorununu çözecek (cache temizlenince) */
 .content-block:hover,
 .info-section:hover,
 .gallery-section:hover,
@@ -467,18 +467,31 @@ footer {
     margin-top: 60px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* YENİ: SENİN ŞIK INSTAGRAM BUTON KODUN EKLENDİ */
 .social-links a {
-    color: var(--footer-text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: #e1306c; /* Instagram rengi */
+    color: #fff;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
-    font-weight: 500;
-    /* YENİ: Instagram linkine de animasyon ekleyelim */
-    transition: transform 0.2s ease-out;
-    display: inline-block; /* transition'ın çalışması için */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 .social-links a:hover {
-    color: var(--brand-color);
-    transform: scale(1.1); /* Sütunlardan biraz daha hızlı büyüsün */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+.social-links a::before {
+    content: '📷';
+    margin-right: 8px;
+}
+/* ESKİ KODLARIN YERİNE BU GELDİ */
+
 
 /* 10. ABARTILI ANİMASYON KISMI */
 .animate-on-scroll {
